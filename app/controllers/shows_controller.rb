@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.all
+    @shows = Show.ransack(params["q"]).result
   end
 
   # GET /shows/1

@@ -2,10 +2,10 @@
 
 <h1>Shows</h1>
 <%= link_to 'Add Channel', new_channel_path%>
-<!-- <form action="/shows" method="GET">
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="q['']">
-</form> -->
+<form action="/shows" method="GET">
+  <input type="text" name="q[name_or_channel_name_eq]">
+  <input type="submit" value="Submit">
+</form>
 <table>
   <thead>
     <tr>
