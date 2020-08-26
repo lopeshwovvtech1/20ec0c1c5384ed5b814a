@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shows</h1>
+<%= link_to 'Add Channel', new_channel_path%>
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">Actions</th>
+      <th>Name</th>
+      <th>Time</th>
+      <th>Channel</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shows.each do |show| %>
+      <tr>
+        <td><% if !add_user_favorite_channel(show.id).present?%>
+            <%= link_to 'Add To Favorite', '#', data: { show_id: show.id }, class: "favorite-btn"%>
+          <% else %>
+            <%= link_to 'Remove From Favorite', "#" %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', show %></td>
+        <td><%= link_to 'Edit', edit_show_path(show) %></td>
+        <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= show.name %></td>
+        <td><%= show_time(show.show_time) %></td>
+        <td><%= get_channel_name(show.channel_id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Show', new_show_path %>
