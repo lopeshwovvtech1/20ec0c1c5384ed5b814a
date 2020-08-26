@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show: one
+  timing: 2020-08-26 14:37:51
+
+two:
+  show: two
+  timing: 2020-08-26 14:37:51

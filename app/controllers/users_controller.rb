@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_filter :verify_authenticity_token
-  protect_from_forgery with: :exception
   before_action :authenticate_user!, except: [:add_to_favorite_show]
   
   before_action :set_user, only: [:show, :edit, :update, :destroy]
@@ -66,7 +64,8 @@ class UsersController < ApplicationController
   end
 
   def add_to_favorite_show
-    binding.pry
+    @user_favorite_show = UserFavoriteShow.new({user_id: current_user.id, show_id: params["show_id"]})
+    @user_favorite_show.save
   end  
 
   private
